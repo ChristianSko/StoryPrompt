@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         
         let storyPrompt = StoryPromptEntry()
         
-        storyPrompt.noun = "toast"
+        storyPrompt.noun = "toasts"
         storyPrompt.adjective = "smelly"
         storyPrompt.verb = "burbs"
         storyPrompt.number = 10

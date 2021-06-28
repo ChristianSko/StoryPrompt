@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import PhotosUI
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var nounTextfield: UITextField!
     @IBOutlet weak var adjectiveTextfield: UITextField!
     @IBOutlet weak var verbTextfield: UITextField!
+    @IBOutlet weak var storyPromptImageView: UIImageView!
     
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var numberSlider: UISlider!
@@ -24,15 +26,7 @@ class ViewController: UIViewController {
         storyPrompt.number = Int(sender.value)
     }
     
-    @IBAction func changedStoryType(_ sender: UISegmentedControl) {
-        if let genre = StoryPrompts.Genre(rawValue: sender.selectedSegmentIndex) {
-            storyPrompt.genre = genre
-        } else {
-            storyPrompt.genre = .scifi
-        }
-        
-        print(storyPrompt.genre)
-    }
+    
     
     
     override func viewDidLoad() {
@@ -46,8 +40,33 @@ class ViewController: UIViewController {
         storyPrompt.verb = "burbs"
         storyPrompt.number = 10
         
+        storyPromptImageView.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage))
+        
+        storyPromptImageView.addGestureRecognizer(gestureRecognizer)
         
         
+    }
+    
+    @IBAction func changedStoryType(_ sender: UISegmentedControl) {
+        if let genre = StoryPrompts.Genre(rawValue: sender.selectedSegmentIndex) {
+            storyPrompt.genre = genre
+        } else {
+            storyPrompt.genre = .scifi
+        }
+        
+        print(storyPrompt.genre)
+    }
+    
+    
+    @objc func changeImage() {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        
+        let controller = PHPickerViewController(configuration: configuration)
+        controller.delegate = self
+        present(controller, animated: true)
         
     }
     
@@ -56,8 +75,11 @@ class ViewController: UIViewController {
         storyPrompt.adjective   = adjectiveTextfield.text ?? ""
         storyPrompt.verb        = verbTextfield.text ?? ""
     }
-
+    
     @IBAction func generateStoryPrompt(_ sender: Any) {
+        
+        updateStoryPrompt()
+        
         print(storyPrompt)
     }
     
@@ -67,9 +89,28 @@ extension ViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-    
+        
         updateStoryPrompt()
         
         return true
+    }
+}
+
+extension ViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        if !results.isEmpty {
+            let result = results.first!
+            let itemProvider = result.itemProvider
+            if itemProvider.canLoadObject(ofClass: UIImage.self) {
+                itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                    guard let image = image as? UIImage else {
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self?.storyPromptImageView.image = image
+                    }
+                }
+            }
+        }
     }
 }

@@ -46,11 +46,30 @@ class ViewController: UIViewController {
         storyPrompt.verb = "burbs"
         storyPrompt.number = 10
         
-        print(storyPrompt)
+        
         
         
     }
+    
+    func updateStoryPrompt() {
+        storyPrompt.noun        = nounTextfield.text ?? ""
+        storyPrompt.adjective   = adjectiveTextfield.text ?? ""
+        storyPrompt.verb        = verbTextfield.text ?? ""
+    }
 
-
+    @IBAction func generateStoryPrompt(_ sender: Any) {
+        print(storyPrompt)
+    }
+    
 }
 
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    
+        updateStoryPrompt()
+        
+        return true
+    }
+}

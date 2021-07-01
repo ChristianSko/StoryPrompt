@@ -54,7 +54,7 @@ class AddStoryPromptViewController: UIViewController {
         } else {
             storyPrompt.genre = .scifi
         }
-        
+            
         print(storyPrompt.genre)
     }
     

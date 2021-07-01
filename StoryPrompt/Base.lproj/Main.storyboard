@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w3X-jc-Vol">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lkr-0Y-5Gf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Story Prompt View Controller-->
+        <!--New Story Prompt-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AddStoryPromptViewController" customModule="StoryPrompt" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="3qU-S6-s8F">
-                                <rect key="frame" x="20" y="101" width="374" height="610"/>
+                                <rect key="frame" x="20" y="145" width="374" height="610"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gEL-ks-Hvh">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -116,11 +116,11 @@
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4k-Ao-omf">
                                         <rect key="frame" x="0.0" y="580" width="374" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Generate Story Prompt"/>
                                         <connections>
-                                            <action selector="generateStoryPrompt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Upz-g8-Xsw"/>
+                                            <segue destination="w3X-jc-Vol" kind="show" id="Or5-Vn-eSc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -138,6 +138,7 @@
                             <constraint firstItem="3qU-S6-s8F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="uhN-7F-Nzs"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Story Prompt" id="Nh8-vt-GYk"/>
                     <connections>
                         <outlet property="adjectiveTextfield" destination="IWD-fb-gqb" id="f3S-7y-fPz"/>
                         <outlet property="nounTextfield" destination="rob-eZ-Wd5" id="W1z-YV-hwO"/>
@@ -185,6 +186,7 @@
                             <constraint firstItem="DLB-AV-yq6" firstAttribute="centerY" secondItem="ubg-Fy-VZS" secondAttribute="centerY" id="l8r-8Z-D8R"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="PZq-VZ-Gc4"/>
                     <connections>
                         <outlet property="storyPromptTextView" destination="yXp-Kz-wwh" id="03S-tc-LbZ"/>
                     </connections>
@@ -192,6 +194,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Idv-D4-OwF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="947.82608695652186" y="116.51785714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xly-qk-Smg">
+            <objects>
+                <navigationController id="lkr-0Y-5Gf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZnX-oW-uEb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sFj-yK-H7h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCY-c2-chY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-730" y="124"/>
         </scene>
     </scenes>
     <resources>
@@ -201,6 +219,9 @@
         <image name="object-object_box-of-books" width="1000" height="1000"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

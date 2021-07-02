@@ -120,7 +120,7 @@
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Generate Story Prompt"/>
                                         <connections>
-                                            <segue destination="w3X-jc-Vol" kind="show" id="Or5-Vn-eSc"/>
+                                            <segue destination="w3X-jc-Vol" kind="show" identifier="StoryPrompt" id="Or5-Vn-eSc"/>
                                         </connections>
                                     </button>
                                 </subviews>

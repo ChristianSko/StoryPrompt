@@ -35,10 +35,6 @@ class AddStoryPromptViewController: UIViewController {
         
         numberSlider.value = 7.5
         
-        storyPrompt.noun = "toasts"
-        storyPrompt.adjective = "smelly"
-        storyPrompt.verb = "burbs"
-        storyPrompt.number = 10
         
         storyPromptImageView.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage))
@@ -88,7 +84,7 @@ class AddStoryPromptViewController: UIViewController {
     @IBAction func generateStoryPrompt(_ sender: Any) {
         updateStoryPrompt()
         if storyPrompt.isValid() {
-            print(storyPrompt)
+            performSegue(withIdentifier: "StoryPrompt", sender: nil)
         } else {
             let alert = UIAlertController(title: "Invalid Story Prompt", message: "Please fill out all of the fields", preferredStyle: .alert)
             

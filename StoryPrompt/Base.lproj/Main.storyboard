@@ -120,7 +120,7 @@
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Generate Story Prompt"/>
                                         <connections>
-                                            <segue destination="w3X-jc-Vol" kind="show" identifier="StoryPrompt" id="Or5-Vn-eSc"/>
+                                            <action selector="generateStoryPrompt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PPf-U2-kBL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -146,11 +146,12 @@
                         <outlet property="numberSlider" destination="fo7-Yy-KG0" id="cHN-9f-ojY"/>
                         <outlet property="storyPromptImageView" destination="5i9-Fv-ZRJ" id="H4O-fm-OsK"/>
                         <outlet property="verbTextfield" destination="vIA-RI-AlI" id="urP-Lr-uMD"/>
+                        <segue destination="w3X-jc-Vol" kind="show" identifier="StoryPrompt" id="sRd-O3-gyF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82.608695652173921" y="116.51785714285714"/>
+            <point key="canvasLocation" x="130" y="152"/>
         </scene>
         <!--Story Prompt View Controller-->
         <scene sceneID="wKD-46-e1b">

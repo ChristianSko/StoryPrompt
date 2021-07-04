@@ -34,7 +34,7 @@ class AddStoryPromptViewController: UIViewController {
         
         
         numberSlider.value = 7.5
-        
+                    
         
         storyPromptImageView.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage))

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="3qU-S6-s8F">
-                                <rect key="frame" x="20" y="101" width="374" height="610"/>
+                                <rect key="frame" x="20" y="145" width="374" height="610"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gEL-ks-Hvh">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="-133"/>
+            <point key="canvasLocation" x="988" y="57"/>
         </scene>
         <!--Story Prompt View Controller-->
         <scene sceneID="wKD-46-e1b">
@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Idv-D4-OwF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947.82608695652186" y="116.51785714285714"/>
+            <point key="canvasLocation" x="988" y="808"/>
         </scene>
         <!--Story Prompt Table View Controller-->
         <scene sceneID="Krj-kI-V7b">
@@ -228,7 +228,13 @@
                             <outlet property="delegate" destination="RC2-kU-YiW" id="vaQ-Cj-SGN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KrG-IG-QMl"/>
+                    <navigationItem key="navigationItem" id="KrG-IG-QMl">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2i1-nX-zYp">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="xCB-ZY-t53"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="w3X-jc-Vol" kind="show" identifier="ShowStoryPompt" id="Hw2-EV-2Gf"/>
                     </connections>
@@ -255,7 +261,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hw2-EV-2Gf"/>
+        <segue reference="sRd-O3-gyF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="10.circle" catalog="system" width="128" height="121"/>

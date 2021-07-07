@@ -68,7 +68,7 @@ class StoryPromptTableViewController: UITableViewController {
         
     }
     @IBAction func cancelStoryPrompt(_ sender: Any) {
-        performSegue(withIdentifier: "cancelStoryPrompt", sender: nil)
+        
     }
     
 

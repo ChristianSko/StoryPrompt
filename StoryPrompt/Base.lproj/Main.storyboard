@@ -178,20 +178,24 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Acn-nT-Mc2">
-                                <rect key="frame" x="152" y="832" width="110" height="30"/>
+                                <rect key="frame" x="150.5" y="832" width="113" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhG-I9-b9b">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="30"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Discard"/>
                                         <connections>
+                                            <action selector="cancelStoryPrompt:" destination="w3X-jc-Vol" eventType="touchUpInside" id="4WB-cU-Mpe"/>
                                             <action selector="cancelStoryPrompt:" destination="rrh-jo-UbB" eventType="touchUpInside" id="tL8-gl-i22"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYW-Td-fAc">
-                                        <rect key="frame" x="79" y="0.0" width="31" height="30"/>
+                                        <rect key="frame" x="79" y="0.0" width="34" height="30"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Safe"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <segue destination="rrh-jo-UbB" kind="unwind" unwindAction="saveStoryPromptWithUnwind:" id="7BK-2X-joz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

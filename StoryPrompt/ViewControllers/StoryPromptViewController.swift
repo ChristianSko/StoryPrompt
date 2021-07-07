@@ -13,6 +13,7 @@ class StoryPromptViewController: UIViewController {
     
     
     var storyPrompt: StoryPromptEntry?
+    var isNewStoryPrompt = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,19 +21,28 @@ class StoryPromptViewController: UIViewController {
         
         storyPromptTextView.text = storyPrompt?.description
         
+        if isNewStoryPrompt {
+            let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveStoryPrompt))
+            let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelStoryPrompt))
+            
+            navigationItem.rightBarButtonItem = saveButton
+            navigationItem.leftBarButtonItem = cancelButton
+            
+            
+        }
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
 
-    @IBAction func cancelStoryPrompt(_ sender: Any) {
+    @objc func cancelStoryPrompt(_ sender: Any) {
         performSegue(withIdentifier: "cancelStoryPrompt", sender: nil)
     }
+    
+    
+    @objc func saveStoryPrompt(_ sender: Any) {
+        performSegue(withIdentifier: "saveStoryPrompt", sender: nil)
+    }
+    
     
     
     
